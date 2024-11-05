@@ -1,0 +1,18 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: employee
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./db-scripts:/usr/db-scripts
+
+volumes:
+  mysql:
